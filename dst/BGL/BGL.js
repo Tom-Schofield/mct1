@@ -35,6 +35,9 @@ var BGL = (function () {
                 return this.getBGLmgdl();
         }
     };
+    BGL.prototype.setBGL = function (bgl) {
+        this._bgl = bgl;
+    };
     BGL.prototype.getBGLmmolL = function () {
         return this._bgl;
     };

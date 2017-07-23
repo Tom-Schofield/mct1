@@ -42,6 +42,10 @@ export class BGL {
         }
     }
 
+    setBGL(bgl: number){
+        this._bgl = bgl;
+    }
+
     getBGLmmolL() {
         return this._bgl;
     }

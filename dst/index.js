@@ -19,10 +19,14 @@ function _default() {
  */
 exports.spells = {
     _default: _default,
-    query: query
+    query: query,
+    setBloodGlucoseLevel: setBloodGlucoseLevel
 };
 function query() {
     log_1.log("BGL: " + mct1_1.mct1.T1Player.BGL.getBGL);
+}
+function setBloodGlucoseLevel() {
+    mct1_1.mct1.T1Player.BGL.setBGL(30);
 }
 function initialise(callback) {
     log_1.log('Initialising...');
@@ -33,3 +37,28 @@ function initialise(callback) {
     mct1_1.mct1.running = false;
     callback && callback();
 }
+// const magik = magikcraft.io;
+// const PlayerItemConsumeEvent = Java.type("org.bukkit.event.player.PlayerItemConsumeEvent");
+// const EventPriority = Java.type("org.bukkit.event.EventPriority");
+// const EventCallback = Java.type("io.magikcraft.EventCallback");
+// // Bind the user who created the event into a closure
+// const me = magik.getSender().getName();
+// magik.getPlugin().registerEvent(
+//         PlayerItemConsumeEvent.class,
+//         EventPriority.MONITOR,
+//         true,
+//         // This callback will be called from Java.
+//         // hopefully the closure with the playername is available at that time. 
+//         // If it's not, we'll need to write a Java method that takes the username.
+//         new EventCallback({
+//             callback: function (event) {
+//                 const userWhoTriggeredEvent = event.getPlayer().getName();
+//                 if (userWhoTriggeredEvent !== me) {
+//                    return; // Early return because triggered by another player
+//                 }
+//                 const itemType = magik.getItem().getType();
+//                 // ^ returns one of https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+//                 event.setCancelled(true); // set true to cancel the server effect of this consumption
+//                 log("I consumed " + itemType.toString()); // .toString() may not be necessary
+//             }
+//         })); 
