@@ -37,7 +37,7 @@ function getBloodGlucoseLevel(){
 }
 
 function setBloodGlucoseLevel(){
-    mct1.T1Player.BGL.setBGL(0.5);
+    mct1.T1Player.BGL.setBGL(5);
     log(`BGL set to ` + mct1.T1Player.BGL.getBGL());
 }
 

@@ -14,6 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var BGLBar = (function () {
     function BGLBar(BGL, deps) {
         var Bars = deps.Bars, sender = deps.sender, textcomponent = deps.textcomponent;
+        this.Bars = Bars;
         this.BGL = BGL;
         this.bar = Bars.addBar(sender, textcomponent("BGL"), Bars.Color.RED, Bars.Style.NOTCHED_20, 0.0 // Progress (0.0 - 1.0)
         );

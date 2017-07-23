@@ -25,6 +25,7 @@ export class BGLBar {
 
     constructor(BGL: BGL, deps: IDependencies) {
         const { Bars, sender, textcomponent } = deps;
+        this.Bars = Bars;
         this.BGL = BGL;
         this.bar = Bars.addBar(sender,
             textcomponent("BGL"),
