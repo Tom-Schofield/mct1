@@ -40,6 +40,10 @@ function setBloodGlucoseLevel(){
     log(`BGL set to ` + mct1.T1Player.BGL.getBGL());
 }
 
+function updateBar(){
+    mct1.BGLBar.monitor();
+}
+
 function consumeApple(){
     const apple = new Carbohydrate(16, 38, 6);
     mct1.T1Player.eatFood(apple, 1);
