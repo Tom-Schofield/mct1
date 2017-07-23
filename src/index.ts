@@ -29,6 +29,7 @@ function query() {
 }
 
 function setBloodGlucoseLevel(){
+    log(`test new spell`);
     mct1.T1Player.BGL.setBGL(30);
 }
 

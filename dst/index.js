@@ -26,6 +26,7 @@ function query() {
     log_1.log("BGL: " + mct1_1.mct1.T1Player.BGL.getBGL);
 }
 function setBloodGlucoseLevel() {
+    log_1.log("test new spell");
     mct1_1.mct1.T1Player.BGL.setBGL(30);
 }
 function initialise(callback) {
