@@ -6,6 +6,7 @@ import { T1Player } from './Player/T1Player';
 
 mct1.version = '1.3.0';
 log(`MCT1 version ${mct1.version}`);
+log(`This is a test`);
 
 function _default() {
     if (!mct1.initialised) {
