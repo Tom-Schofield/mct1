@@ -25,9 +25,13 @@ exports.spells = {
 function query() {
     log_1.log("BGL: " + mct1_1.mct1.T1Player.BGL.getBGL);
 }
+function getBloodGlucoseLevel() {
+    mct1_1.mct1.T1Player.BGL.setBGL(0.5);
+    log_1.log("BGL set to " + mct1_1.mct1.T1Player.BGL.getBGL());
+}
 function setBloodGlucoseLevel() {
     mct1_1.mct1.T1Player.BGL.setBGL(0.5);
-    log_1.log("BGL set to" + mct1_1.mct1.T1Player.BGL.getBGL());
+    log_1.log("BGL set to " + mct1_1.mct1.T1Player.BGL.getBGL());
 }
 function initialise(callback) {
     log_1.log('Initialising...');

@@ -28,9 +28,14 @@ function query() {
     log(`BGL: ${mct1.T1Player.BGL.getBGL}`);
 }
 
+function getBloodGlucoseLevel(){
+    mct1.T1Player.BGL.setBGL(0.5);
+    log(`BGL set to ` + mct1.T1Player.BGL.getBGL());
+}
+
 function setBloodGlucoseLevel(){
     mct1.T1Player.BGL.setBGL(0.5);
-    log(`BGL set to` + mct1.T1Player.BGL.getBGL());
+    log(`BGL set to ` + mct1.T1Player.BGL.getBGL());
 }
 
 function initialise(callback?: () => void) {
