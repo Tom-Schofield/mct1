@@ -53,7 +53,7 @@ function initialise(callback?: () => void) {
     mct1.BGLBar = new BGLBarGlucoseMonitor(player, 1000);
     mct1.T1Player = player;
     mct1.initialised = true;
-    mct1.running = false;
+    mct1.running = true;
     callback && callback();
 }
 

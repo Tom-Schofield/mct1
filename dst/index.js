@@ -46,7 +46,7 @@ function initialise(callback) {
     mct1_1.mct1.BGLBar = new BGLBarGlucoseMonitor_1.BGLBarGlucoseMonitor(player, 1000);
     mct1_1.mct1.T1Player = player;
     mct1_1.mct1.initialised = true;
-    mct1_1.mct1.running = false;
+    mct1_1.mct1.running = true;
     callback && callback();
 }
 // const magik = magikcraft.io;
