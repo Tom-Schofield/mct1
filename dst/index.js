@@ -32,7 +32,9 @@ function query() {
 function getBloodGlucoseLevel() {
     log_1.log("BGL is " + mct1_1.mct1.T1Player.BGL.getBGL());
 }
-function setBloodGlucoseLevel() {
+function setBloodGlucoseLevel(player) {
+    var args = [].slice.call(arguments).join(' ');
+    log_1.log(args);
     mct1_1.mct1.T1Player.BGL.setBGL(3);
     log_1.log("BGL set to " + mct1_1.mct1.T1Player.BGL.getBGL());
 }
