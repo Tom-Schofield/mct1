@@ -23,7 +23,8 @@ exports.spells = {
     query: query,
     setBloodGlucoseLevel: setBloodGlucoseLevel,
     getBloodGlucoseLevel: getBloodGlucoseLevel,
-    consumeApple: consumeApple
+    consumeApple: consumeApple,
+    updateBar: updateBar
 };
 function query() {
     log_1.log("BGL: " + mct1_1.mct1.T1Player.BGL.getBGL);

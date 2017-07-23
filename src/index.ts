@@ -24,7 +24,8 @@ export const spells = {
     query,
     setBloodGlucoseLevel,
     getBloodGlucoseLevel,
-    consumeApple
+    consumeApple,
+    updateBar
 }
 
 function query() {
