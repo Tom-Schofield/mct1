@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var BGLBar_1 = require("./BGLBar");
+var log_1 = require("../../util/log");
 var GlucoseMonitor_1 = require("../GlucoseMonitor");
 var BGLBarGlucoseMonitor = (function (_super) {
     __extends(BGLBarGlucoseMonitor, _super);
@@ -27,6 +28,7 @@ var BGLBarGlucoseMonitor = (function (_super) {
     BGLBarGlucoseMonitor.prototype.monitor = function () {
         // We don't need to pass in the BGL value, because the bar has a reference to the player's BGL
         this.BGLBar.update();
+        log_1.log('Monitor triggered');
     };
     return BGLBarGlucoseMonitor;
 }(GlucoseMonitor_1.GlucoseMonitor));
