@@ -5,6 +5,7 @@ var log_1 = require("./util/log");
 var BGLBarGlucoseMonitor_1 = require("./GlucoseMonitor/BGLBarGlucoseMonitor/BGLBarGlucoseMonitor");
 var mct1_1 = require("./util/mct1");
 var T1Player_1 = require("./Player/T1Player");
+var Carbohydrate_1 = require("./Carbs/Carbohydrate");
 mct1_1.mct1.version = '1.3.0';
 log_1.log("MCT1 version " + mct1_1.mct1.version);
 log_1.log("This is a test");
@@ -21,7 +22,8 @@ exports.spells = {
     _default: _default,
     query: query,
     setBloodGlucoseLevel: setBloodGlucoseLevel,
-    getBloodGlucoseLevel: getBloodGlucoseLevel
+    getBloodGlucoseLevel: getBloodGlucoseLevel,
+    consumeApple: consumeApple
 };
 function query() {
     log_1.log("BGL: " + mct1_1.mct1.T1Player.BGL.getBGL);
@@ -33,6 +35,10 @@ function getBloodGlucoseLevel() {
 function setBloodGlucoseLevel() {
     mct1_1.mct1.T1Player.BGL.setBGL(0.5);
     log_1.log("BGL set to " + mct1_1.mct1.T1Player.BGL.getBGL());
+}
+function consumeApple() {
+    var apple = new Carbohydrate_1.Carbohydrate(16, 38, 6);
+    mct1_1.mct1.T1Player.eatFood(apple, 1);
 }
 function initialise(callback) {
     log_1.log('Initialising...');

@@ -3,6 +3,7 @@ import { log } from './util/log';
 import { BGLBarGlucoseMonitor } from './GlucoseMonitor/BGLBarGlucoseMonitor/BGLBarGlucoseMonitor';
 import { mct1 } from './util/mct1';
 import { T1Player } from './Player/T1Player';
+import { Carbohydrate } from './Carbs/Carbohydrate';
 
 mct1.version = '1.3.0';
 log(`MCT1 version ${mct1.version}`);
@@ -22,7 +23,8 @@ export const spells = {
     _default,
     query,
     setBloodGlucoseLevel,
-    getBloodGlucoseLevel
+    getBloodGlucoseLevel,
+    consumeApple
 }
 
 function query() {
@@ -38,6 +40,11 @@ function getBloodGlucoseLevel(){
 function setBloodGlucoseLevel(){
     mct1.T1Player.BGL.setBGL(0.5);
     log(`BGL set to ` + mct1.T1Player.BGL.getBGL());
+}
+
+function consumeApple(){
+    const apple = new Carbohydrate(16, 38, 6);
+    mct1.T1Player.eatFood(apple, 1);
 }
 
 function initialise(callback?: () => void) {
