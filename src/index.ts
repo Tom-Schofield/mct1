@@ -31,7 +31,6 @@ function query() {
 function setBloodGlucoseLevel(){
     log(`BGL set to 5 mmol/L`);
     mct1.T1Player.BGL.setBGL(0.5);
-    mct1.BGLBar.BGLBar.update();
 }
 
 function initialise(callback?: () => void) {
