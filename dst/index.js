@@ -20,7 +20,8 @@ function _default() {
 exports.spells = {
     _default: _default,
     query: query,
-    setBloodGlucoseLevel: setBloodGlucoseLevel
+    setBloodGlucoseLevel: setBloodGlucoseLevel,
+    getBloodGlucoseLevel: getBloodGlucoseLevel
 };
 function query() {
     log_1.log("BGL: " + mct1_1.mct1.T1Player.BGL.getBGL);

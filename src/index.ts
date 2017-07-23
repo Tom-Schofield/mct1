@@ -21,7 +21,8 @@ function _default() {
 export const spells = {
     _default,
     query,
-    setBloodGlucoseLevel
+    setBloodGlucoseLevel,
+    getBloodGlucoseLevel
 }
 
 function query() {
