@@ -29,7 +29,7 @@ function query() {
 }
 
 function setBloodGlucoseLevel(){
-    log(`test new spell`);
+    log(`BGL set to 30`);
     mct1.T1Player.BGL.setBGL(30);
 }
 
