@@ -25,7 +25,8 @@ exports.spells = {
     setBloodGlucoseLevel: setBloodGlucoseLevel,
     getBloodGlucoseLevel: getBloodGlucoseLevel,
     consumeApple: consumeApple,
-    updateBar: updateBar
+    updateBar: updateBar,
+    takeInsulin: takeInsulin
 };
 function query() {
     log_1.log("BGL: " + mct1_1.mct1.T1Player.BGL.getBGL);
@@ -45,8 +46,10 @@ function consumeApple() {
     mct1_1.mct1.T1Player.eatFood(apple, 1);
 }
 function takeInsulin() {
+    log_1.log('Taking insulin...');
     var insulinDose = new Insulin_1.Insulin(10, 100, 50, true);
     mct1_1.mct1.T1Player.takeInsulin(insulinDose, 1);
+    log_1.log('Administered dose of Insulin');
 }
 function initialise(callback) {
     log_1.log('Initialising...');

@@ -26,7 +26,8 @@ export const spells = {
     setBloodGlucoseLevel,
     getBloodGlucoseLevel,
     consumeApple,
-    updateBar
+    updateBar,
+    takeInsulin
 }
 
 function query() {
@@ -52,8 +53,10 @@ function consumeApple(){
 }
 
 function takeInsulin(){
+    log('Taking insulin...');
     let insulinDose = new Insulin(10, 100, 50, true);
     mct1.T1Player.takeInsulin(insulinDose, 1);
+    log('Administered dose of Insulin');
 }
 
 function initialise(callback?: () => void) {
