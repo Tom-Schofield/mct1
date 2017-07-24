@@ -6,6 +6,7 @@ var BGLBarGlucoseMonitor_1 = require("./GlucoseMonitor/BGLBarGlucoseMonitor/BGLB
 var mct1_1 = require("./util/mct1");
 var T1Player_1 = require("./Player/T1Player");
 var Carbohydrate_1 = require("./Carbs/Carbohydrate");
+var Insulin_1 = require("./Insulin/Insulin");
 mct1_1.mct1.version = '1.3.0';
 log_1.log("MCT1 version " + mct1_1.mct1.version);
 log_1.log("This is a test");
@@ -43,6 +44,10 @@ function consumeApple() {
     var apple = new Carbohydrate_1.Carbohydrate(16, 38, 6);
     mct1_1.mct1.T1Player.eatFood(apple, 1);
 }
+function takeInsulin() {
+    var insulinDose = new Insulin_1.Insulin(10, 100, 50, true);
+    mct1_1.mct1.T1Player.takeInsulin(insulinDose, 1);
+}
 function initialise(callback) {
     log_1.log('Initialising...');
     var player = new T1Player_1.T1Player();
@@ -52,28 +57,3 @@ function initialise(callback) {
     mct1_1.mct1.running = true;
     callback && callback();
 }
-// const magik = magikcraft.io;
-// const PlayerItemConsumeEvent = Java.type("org.bukkit.event.player.PlayerItemConsumeEvent");
-// const EventPriority = Java.type("org.bukkit.event.EventPriority");
-// const EventCallback = Java.type("io.magikcraft.EventCallback");
-// // Bind the user who created the event into a closure
-// const me = magik.getSender().getName();
-// magik.getPlugin().registerEvent(
-//         PlayerItemConsumeEvent.class,
-//         EventPriority.MONITOR,
-//         true,
-//         // This callback will be called from Java.
-//         // hopefully the closure with the playername is available at that time. 
-//         // If it's not, we'll need to write a Java method that takes the username.
-//         new EventCallback({
-//             callback: function (event) {
-//                 const userWhoTriggeredEvent = event.getPlayer().getName();
-//                 if (userWhoTriggeredEvent !== me) {
-//                    return; // Early return because triggered by another player
-//                 }
-//                 const itemType = magik.getItem().getType();
-//                 // ^ returns one of https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
-//                 event.setCancelled(true); // set true to cancel the server effect of this consumption
-//                 log("I consumed " + itemType.toString()); // .toString() may not be necessary
-//             }
-//         })); 
