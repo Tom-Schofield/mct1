@@ -40,6 +40,7 @@
   },
   "homepage": "https://www.mct1.io",
   "dependencies": {
+    "magikcraft-lore-ui-bar": "^1.0.8",
     "magikcraft.io": "^0.9.8",
     "only": "0.0.2",
     "typescript": "^2.4.1"

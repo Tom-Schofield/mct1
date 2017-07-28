@@ -45,8 +45,6 @@ function setBloodGlucoseLevel(player){
     log(`BGL set to ` + mct1.T1Player.BGL.getBGL());
 }
 
-//const { bar, color, style } = require('magikcraft-lore-ui-bar');
-
 const magik = magikcraft.io;
 const setTimeout = magik.setTimeout;
 

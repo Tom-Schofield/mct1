@@ -7,7 +7,7 @@ var mct1_1 = require("./util/mct1");
 var T1Player_1 = require("./Player/T1Player");
 var Carbohydrate_1 = require("./Carbs/Carbohydrate");
 var Insulin_1 = require("./Insulin/Insulin");
-var magikcraft_lore_ui_bar_1 = require("magikcraft-lore-ui-bar");
+var magikcraft_lore_ui_bar_1 = require("../node_modules/magikcraft-lore-ui-bar");
 mct1_1.mct1.version = '1.3.0';
 log_1.log("MCT1 version " + mct1_1.mct1.version);
 log_1.log("This is a test");
