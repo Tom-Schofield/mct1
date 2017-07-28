@@ -5,6 +5,7 @@ import { mct1 } from './util/mct1';
 import { T1Player } from './Player/T1Player';
 import { Carbohydrate } from './Carbs/Carbohydrate';
 import { Insulin } from './Insulin/Insulin';
+import { bar, color, style } from 'magikcraft-lore-ui-bar';
 
 mct1.version = '1.3.0';
 log(`MCT1 version ${mct1.version}`);
@@ -27,7 +28,8 @@ export const spells = {
     getBloodGlucoseLevel,
     consumeApple,
     updateBar,
-    takeInsulin
+    takeInsulin,
+    test
 }
 
 function query() {
@@ -41,6 +43,33 @@ function getBloodGlucoseLevel(){
 function setBloodGlucoseLevel(player){
     mct1.T1Player.BGL.setBGL(3);
     log(`BGL set to ` + mct1.T1Player.BGL.getBGL());
+}
+
+//const { bar, color, style } = require('magikcraft-lore-ui-bar');
+
+const magik = magikcraft.io;
+const setTimeout = magik.setTimeout;
+
+function test() {
+    const b = bar()
+        .text("Hello")
+        .color(color.GREEN)
+        .style(style.NOTCHED_10)
+        .progress(50)
+        .show();
+
+    // Change color
+    setTimeout(() => b.color(color.RED), 2000);
+
+    // Change progress
+    setTimeout(() => b.progress(70), 4000);
+
+    // Change message, color, and progress
+    setTimeout(() => b.text("Goodbye").progress(65).color(color.PURPLE),
+    6000);
+
+    // Remove bar
+    setTimeout(() => b.destroy(), 8000);
 }
 
 function updateBar(){

@@ -7,6 +7,7 @@ var mct1_1 = require("./util/mct1");
 var T1Player_1 = require("./Player/T1Player");
 var Carbohydrate_1 = require("./Carbs/Carbohydrate");
 var Insulin_1 = require("./Insulin/Insulin");
+var magikcraft_lore_ui_bar_1 = require("magikcraft-lore-ui-bar");
 mct1_1.mct1.version = '1.3.0';
 log_1.log("MCT1 version " + mct1_1.mct1.version);
 log_1.log("This is a test");
@@ -26,7 +27,8 @@ exports.spells = {
     getBloodGlucoseLevel: getBloodGlucoseLevel,
     consumeApple: consumeApple,
     updateBar: updateBar,
-    takeInsulin: takeInsulin
+    takeInsulin: takeInsulin,
+    test: test
 };
 function query() {
     log_1.log("BGL: " + mct1_1.mct1.T1Player.BGL.getBGL);
@@ -37,6 +39,25 @@ function getBloodGlucoseLevel() {
 function setBloodGlucoseLevel(player) {
     mct1_1.mct1.T1Player.BGL.setBGL(3);
     log_1.log("BGL set to " + mct1_1.mct1.T1Player.BGL.getBGL());
+}
+//const { bar, color, style } = require('magikcraft-lore-ui-bar');
+var magik = magikcraft.io;
+var setTimeout = magik.setTimeout;
+function test() {
+    var b = magikcraft_lore_ui_bar_1.bar()
+        .text("Hello")
+        .color(magikcraft_lore_ui_bar_1.color.GREEN)
+        .style(magikcraft_lore_ui_bar_1.style.NOTCHED_10)
+        .progress(50)
+        .show();
+    // Change color
+    setTimeout(function () { return b.color(magikcraft_lore_ui_bar_1.color.RED); }, 2000);
+    // Change progress
+    setTimeout(function () { return b.progress(70); }, 4000);
+    // Change message, color, and progress
+    setTimeout(function () { return b.text("Goodbye").progress(65).color(magikcraft_lore_ui_bar_1.color.PURPLE); }, 6000);
+    // Remove bar
+    setTimeout(function () { return b.destroy(); }, 8000);
 }
 function updateBar() {
     mct1_1.mct1.BGLBar.monitor();
