@@ -81,14 +81,15 @@ function test() {
 /*
  * Creates a BGL and sets it to the current players BGL level
  */
-function createBGLBar(number){
+function createBGLBar(bgl:number){
     
     const b = bar()
-        .text("BGL " + number)
+        .text("BGL " + bgl)
         .color(color.GREEN)
         .style(style.NOTCHED_10)
         .progress(50)
         .show();
+    return b;
 }
 
 /*
@@ -117,10 +118,10 @@ function initialise(callback?: () => void) {
     mct1.BGLBar = new BGLBarGlucoseMonitor(player, 1000);
 
 
-    createBGLBar(player.BGL.getBGL);
+    var bar = createBGLBar(player.BGL.getBGLmmolL());
 
     // Set the BGL bar to periodically update every 200ms
-    setInterval(updateBar, 200);
+    setInterval(updateBar(bar, player), 200);
 
 
     mct1.T1Player = player;

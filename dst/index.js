@@ -68,13 +68,14 @@ function test() {
 /*
  * Creates a BGL and sets it to the current players BGL level
  */
-function createBGLBar(number) {
+function createBGLBar(bgl) {
     var b = magikcraft_lore_ui_bar_1.bar()
-        .text("BGL " + number)
+        .text("BGL " + bgl)
         .color(magikcraft_lore_ui_bar_1.color.GREEN)
         .style(magikcraft_lore_ui_bar_1.style.NOTCHED_10)
         .progress(50)
         .show();
+    return b;
 }
 /*
  * Function for updating BGL bar
@@ -96,9 +97,9 @@ function initialise(callback) {
     log_1.log('Initialising...');
     var player = new T1Player_1.T1Player();
     mct1_1.mct1.BGLBar = new BGLBarGlucoseMonitor_1.BGLBarGlucoseMonitor(player, 1000);
-    createBGLBar(player.BGL.getBGL);
+    var bar = createBGLBar(player.BGL.getBGLmmolL());
     // Set the BGL bar to periodically update every 200ms
-    setInterval(updateBar, 200);
+    setInterval(updateBar(bar, player), 200);
     mct1_1.mct1.T1Player = player;
     mct1_1.mct1.initialised = true;
     mct1_1.mct1.running = true;
