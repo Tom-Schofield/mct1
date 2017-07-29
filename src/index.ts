@@ -50,9 +50,9 @@ const magik = magikcraft.io;
 const setTimeout = magik.setTimeout;
 
 function getArgs(){
-    var args = [].slice.call(arguments);
-    for(var i=0; i< args.length; i++){
-        magikcraft.io.dixit(i + "");
+    const args = [].slice.call(arguments).join(' ');
+    for (var i=0; i<args.length; i++){
+        log(args[i]);
     }
 }
 
