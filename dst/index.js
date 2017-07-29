@@ -8,6 +8,7 @@ var T1Player_1 = require("./Player/T1Player");
 var Carbohydrate_1 = require("./Carbs/Carbohydrate");
 var Insulin_1 = require("./Insulin/Insulin");
 var magikcraft_lore_ui_bar_1 = require("magikcraft-lore-ui-bar");
+var timer_1 = require("./util/timer");
 mct1_1.mct1.version = '1.3.0';
 log_1.log("MCT1 version " + mct1_1.mct1.version);
 log_1.log("This is a test");
@@ -103,5 +104,5 @@ function initialise(callback) {
     callback && callback();
     var bar = createBGLBar(player.BGL.getBGLmmolL());
     // Set the BGL bar to periodically update every 200ms
-    setInterval(updateBar, 6000, bar, player);
+    timer_1.Interval.setInterval(updateBar, 6000, bar, player);
 }
