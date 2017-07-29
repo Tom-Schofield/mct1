@@ -6,7 +6,7 @@ import { T1Player } from './Player/T1Player';
 import { Carbohydrate } from './Carbs/Carbohydrate';
 import { Insulin } from './Insulin/Insulin';
 import { bar, color, style } from 'magikcraft-lore-ui-bar';
-import {Timer} from './util/timer';
+import {Interval} from './util/timer';
 
 mct1.version = '1.3.0';
 log(`MCT1 version ${mct1.version}`);
@@ -122,7 +122,7 @@ function initialise(callback?: () => void) {
     var bar = createBGLBar(player.BGL.getBGLmmolL());
 
     // Set the BGL bar to periodically update every 200ms
-    setInterval(updateBar(bar, player), 200);
+    Interval.setInterval(updateBar(bar, player), 200);
 
 
     mct1.T1Player = player;
