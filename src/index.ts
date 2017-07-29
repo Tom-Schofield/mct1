@@ -98,6 +98,7 @@ function createBGLBar(bgl:number){
 
 function updateBar(bar, player){
     bar.text = "BGL " + player.BGL.getBGL;
+    magikcraft.io.dixit('BGL bar updated');
 }
 
 function consumeApple(){

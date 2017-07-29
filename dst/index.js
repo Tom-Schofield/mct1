@@ -83,6 +83,7 @@ function createBGLBar(bgl) {
  */
 function updateBar(bar, player) {
     bar.text = "BGL " + player.BGL.getBGL;
+    magikcraft.io.dixit('BGL bar updated');
 }
 function consumeApple() {
     var apple = new Carbohydrate_1.Carbohydrate(16, 38, 6);
