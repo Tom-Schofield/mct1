@@ -11,6 +11,8 @@ var magikcraft_lore_ui_bar_1 = require("magikcraft-lore-ui-bar");
 mct1_1.mct1.version = '1.3.0';
 log_1.log("MCT1 version " + mct1_1.mct1.version);
 log_1.log("This is a test");
+var magik = magikcraft.io;
+var setTimeout = magik.setTimeout;
 function _default() {
     if (!mct1_1.mct1.initialised) {
         initialise();
@@ -41,10 +43,8 @@ function setBloodGlucoseLevel(player) {
     mct1_1.mct1.T1Player.BGL.setBGL(3);
     log_1.log("BGL set to " + mct1_1.mct1.T1Player.BGL.getBGL());
 }
-var magik = magikcraft.io;
-var setTimeout = magik.setTimeout;
 function getArgs(arg1, arg2, arg3) {
-    var args = [].slice.call(arguments).join(' ');
+    var args = Array.prototype.slice.call(arguments);
     for (var i = 0; i < args.length; i++) {
         log_1.log(i + "");
     }
@@ -65,8 +65,22 @@ function test() {
     // Remove bar
     setTimeout(function () { return b.destroy(); }, 8000);
 }
-function updateBar() {
-    mct1_1.mct1.BGLBar.monitor();
+/*
+ * Creates a BGL and sets it to the current players BGL level
+ */
+function createBGLBar(number) {
+    var b = magikcraft_lore_ui_bar_1.bar()
+        .text("BGL " + number)
+        .color(magikcraft_lore_ui_bar_1.color.GREEN)
+        .style(magikcraft_lore_ui_bar_1.style.NOTCHED_10)
+        .progress(50)
+        .show();
+}
+/*
+ * Function for updating BGL bar
+ */
+function updateBar(bar, player) {
+    bar.text = "BGL " + player.BGL.getBGL;
 }
 function consumeApple() {
     var apple = new Carbohydrate_1.Carbohydrate(16, 38, 6);
@@ -82,6 +96,9 @@ function initialise(callback) {
     log_1.log('Initialising...');
     var player = new T1Player_1.T1Player();
     mct1_1.mct1.BGLBar = new BGLBarGlucoseMonitor_1.BGLBarGlucoseMonitor(player, 1000);
+    createBGLBar(player.BGL.getBGL);
+    // Set the BGL bar to periodically update every 200ms
+    setInterval(updateBar, 200);
     mct1_1.mct1.T1Player = player;
     mct1_1.mct1.initialised = true;
     mct1_1.mct1.running = true;

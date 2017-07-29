@@ -11,6 +11,9 @@ mct1.version = '1.3.0';
 log(`MCT1 version ${mct1.version}`);
 log(`This is a test`);
 
+const magik = magikcraft.io;
+const setTimeout = magik.setTimeout;
+
 function _default() {
     if (!mct1.initialised) {
         initialise();
@@ -46,11 +49,8 @@ function setBloodGlucoseLevel(player){
     log(`BGL set to ` + mct1.T1Player.BGL.getBGL());
 }
 
-const magik = magikcraft.io;
-const setTimeout = magik.setTimeout;
-
 function getArgs(arg1, arg2, arg3){
-    const args = [].slice.call(arguments).join(' ');
+    var args = Array.prototype.slice.call(arguments);
     for (var i=0; i<args.length; i++){
         log(i + "");
     }
@@ -78,8 +78,25 @@ function test() {
     setTimeout(() => b.destroy(), 8000);
 }
 
-function updateBar(){
-    mct1.BGLBar.monitor();
+/*
+ * Creates a BGL and sets it to the current players BGL level
+ */
+function createBGLBar(number){
+    
+    const b = bar()
+        .text("BGL " + number)
+        .color(color.GREEN)
+        .style(style.NOTCHED_10)
+        .progress(50)
+        .show();
+}
+
+/*
+ * Function for updating BGL bar
+ */
+
+function updateBar(bar, player){
+    bar.text = "BGL " + player.BGL.getBGL;
 }
 
 function consumeApple(){
@@ -99,8 +116,17 @@ function initialise(callback?: () => void) {
     const player = new T1Player();
     mct1.BGLBar = new BGLBarGlucoseMonitor(player, 1000);
 
+
+    createBGLBar(player.BGL.getBGL);
+
+    // Set the BGL bar to periodically update every 200ms
+    setInterval(updateBar, 200);
+
+
     mct1.T1Player = player;
     mct1.initialised = true;
     mct1.running = true;
     callback && callback();
+
+    
 }   
