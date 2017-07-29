@@ -97,11 +97,11 @@ function initialise(callback) {
     log_1.log('Initialising...');
     var player = new T1Player_1.T1Player();
     mct1_1.mct1.BGLBar = new BGLBarGlucoseMonitor_1.BGLBarGlucoseMonitor(player, 1000);
-    var bar = createBGLBar(player.BGL.getBGLmmolL());
-    // Set the BGL bar to periodically update every 200ms
-    setInterval(updateBar, 6000, bar, player);
     mct1_1.mct1.T1Player = player;
     mct1_1.mct1.initialised = true;
     mct1_1.mct1.running = true;
     callback && callback();
+    var bar = createBGLBar(player.BGL.getBGLmmolL());
+    // Set the BGL bar to periodically update every 200ms
+    setInterval(updateBar, 6000, bar, player);
 }
