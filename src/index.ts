@@ -51,7 +51,7 @@ const setTimeout = magik.setTimeout;
 
 function getArgs(){
     var args = [].slice.call(arguments);
-    for(var i=0; i< args.length; ){
+    for(var i=0; i< args.length; i++){
         magikcraft.io.dixit(args[i]);
     }
 }
