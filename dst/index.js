@@ -43,10 +43,10 @@ function setBloodGlucoseLevel(player) {
 }
 var magik = magikcraft.io;
 var setTimeout = magik.setTimeout;
-function getArgs() {
+function getArgs(arg1, arg2, arg3) {
     var args = [].slice.call(arguments).join(' ');
     for (var i = 0; i < args.length; i++) {
-        log_1.log(args[i]);
+        log_1.log(i + "");
     }
 }
 function test() {
