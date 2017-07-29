@@ -28,7 +28,8 @@ exports.spells = {
     consumeApple: consumeApple,
     updateBar: updateBar,
     takeInsulin: takeInsulin,
-    test: test
+    test: test,
+    getArgs: getArgs
 };
 function query() {
     log_1.log("BGL: " + mct1_1.mct1.T1Player.BGL.getBGL);
@@ -42,6 +43,12 @@ function setBloodGlucoseLevel(player) {
 }
 var magik = magikcraft.io;
 var setTimeout = magik.setTimeout;
+function getArgs() {
+    var args = [].slice.call(arguments);
+    for (var i = 0; i < args.length;) {
+        magikcraft.io.dixit(args[i]);
+    }
+}
 function test() {
     var b = magikcraft_lore_ui_bar_1.bar()
         .text("Hello")

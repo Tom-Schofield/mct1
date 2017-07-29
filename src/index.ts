@@ -29,7 +29,8 @@ export const spells = {
     consumeApple,
     updateBar,
     takeInsulin,
-    test
+    test,
+    getArgs
 }
 
 function query() {
@@ -47,6 +48,13 @@ function setBloodGlucoseLevel(player){
 
 const magik = magikcraft.io;
 const setTimeout = magik.setTimeout;
+
+function getArgs(){
+    var args = [].slice.call(arguments);
+    for(var i=0; i< args.length; ){
+        magikcraft.io.dixit(args[i]);
+    }
+}
 
 function test() {
     const b = bar()
