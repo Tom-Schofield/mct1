@@ -121,7 +121,7 @@ function initialise(callback?: () => void) {
     var bar = createBGLBar(player.BGL.getBGLmmolL());
 
     // Set the BGL bar to periodically update every 200ms
-    setInterval(function(){updateBar(bar, player)}, 200);
+    setInterval(function(){updateBar(bar, player)}, 6000);
 
     mct1.T1Player = player;
     mct1.initialised = true;

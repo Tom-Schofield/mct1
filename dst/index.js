@@ -99,7 +99,7 @@ function initialise(callback) {
     mct1_1.mct1.BGLBar = new BGLBarGlucoseMonitor_1.BGLBarGlucoseMonitor(player, 1000);
     var bar = createBGLBar(player.BGL.getBGLmmolL());
     // Set the BGL bar to periodically update every 200ms
-    setInterval(function () { updateBar(bar, player); }, 200);
+    setInterval(function () { updateBar(bar, player); }, 6000);
     mct1_1.mct1.T1Player = player;
     mct1_1.mct1.initialised = true;
     mct1_1.mct1.running = true;
